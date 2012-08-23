@@ -1,0 +1,28 @@
+{
+  "name": "jquest-mission",
+  "version": "0.0.1",
+  "description": "Abstract class to implement jQuest's mission Node.js.",
+  "author": { 
+    "name": "Pierre Romera", 
+    "email": "hello@pirhoo.com", 
+    "url": "http://pirhoo.com" 
+  },
+  "homepage": "http://jquest.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jplusplus/jquest-mission.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jplusplus/jquest-mission/issues"
+  },
+  "main": "./lib/mission",
+  "dependencies": {
+    "pkginfo": "0.2.x"
+  },
+  "engines": { "node": ">= 0.6.22" },
+  "licenses": [ {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/MIT"
+  } ],
+  "keywords": ["express", "jquest", "sdk", "mission", "e-learning"]
+}
