@@ -2,10 +2,10 @@
 var util 	  = require("util")
 	, Mission = require("../../lib/mission");
 
-function TwitterMission(app) {
+function TwitterMission() {
 
 	// Call the parent constructor
-	TwitterMission.super_.call(this, app);	
+	TwitterMission.super_.call(this);	
 
 	// Here some configuration attributs
 		
