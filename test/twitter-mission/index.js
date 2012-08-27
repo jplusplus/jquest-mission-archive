@@ -9,12 +9,12 @@ function TwitterMission(models, userId, chapterId, callback) {
 
     // Here some configuration attributs
       
-    // On peut changer une variables dont on a hérité (de Mission)
-    this.pointsAwarded   = 70; // Nombre de points obtenu à la fin de la mission, 100 par defaut
-    this.duration        = 20000; // Indique qu'on a 20 secondes pour réaliser la mission, false par defaut (pas de durée)  
+    // Inherited variables can be changed (from Mission)
+    this.pointsAwarded   = 70; // The number of points users get at the end of the mission (default = 100)
+    this.duration        = 20000; // Users have 20 seconds to complete the mission (default = no minimal duration)  
 
-    // On peut aussi en ajouter une nouvelle (privée)
-    this.accountToFind = "@jquest" // Notre mission peut par exemple consister à suivre ce compte
+    // New (private) variables can be added
+    this.accountToFind = "@jquest" // In this example, the mission's aim is to follow this Twitter account
 
     // Callback function
     if(typeof callback === "function") callback.call(this);
@@ -28,22 +28,22 @@ function TwitterMission(models, userId, chapterId, callback) {
  */
 util.inherits(TwitterMission, Mission);
 
-// Pour coder une mission, nous allons permettre aux développeurs d’utiliser une classe abstraite. 
-// Ça signifie qu’ils devront intégrer un module (open source, via npm ou github) 
-// et implémenter les méthodes de cette classe.
+// To code a mission, developers can use an abstract class. 
+// They will implement an open source module (via npm or github) 
+// and implement methods from this class.
 
 /**
-* Implemente la classe qui va verifier l'état d'avancement de l'utiliseur
-* @param  {Object}   user   L'object contenant l'utilisateur
-* @return {Boolean}         Retourne true si la mission est complétée
+* Implements the class that'll check on the advancement of the user
+* @param  {Object}   user   The object containing the user
+* @return {Boolean}         Retourns true if the mission is completed
 */
 TwitterMission.prototype.isCompleted = function(user) {
-  // Des choses à vérifier...
-  // Par exemple, suivont nous le compte indiqué ?
-  //     on peut écrire une fonction qui va vérifier ça
+  // Things to check upon...
+  // For instance, does the user follow the aforementioned account ?
+  //     we can write a function to check up on that
   //     TwitterMission.areFriends(user.nickname, exports.accound_to_find)
 
-  return true; // Ou false si on est pas satisfait
+  return true; // Or false if the condition isn't satisfied
 };
 
 
