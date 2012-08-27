@@ -12,7 +12,7 @@ vows.describe('twitter-mission')
   .addBatch({
     "An instance of TwitterMission": {
       topic: function() {
-        return new TwitterMission(null)
+        return new TwitterMission({})
       },
       "Abstract methods implemented": function(topic) {
         tm = topic;
@@ -22,11 +22,14 @@ vows.describe('twitter-mission')
   })
   .addBatch({  
     "Required attributs states": {
-      "points" : function() {
-        assert.isNumber( tm.points );
+      "points awarded" : function() {
+        assert.isNumber( tm.pointsAwarded );
       }, 
       "duration" : function () { 
         assert.isNumber( tm.duration )
+      },
+      "creation date": function() {
+      	assert.ok( tm.createdAt instanceof Date )
       }
     },
     "Returned values" : {

@@ -2,19 +2,25 @@
 var util    = require("util")
   , Mission = require("../../lib/mission");
 
-function TwitterMission() {
+function TwitterMission(models, userId, chapterId, callback) {
 
   // Call the parent constructor
-  TwitterMission.super_.call(this);  
+  TwitterMission.super_.call(this, models, userId, chapterId, function() {
 
-  // Here some configuration attributs
-    
-  // On peut changer une variables dont on a hérité (de Mission)
-  this.points   = 70; // Nombre de points obtenu à la fin de la mission, 100 par defaut
-  this.duration = 20000; // Indique qu'on a 20 secondes pour réaliser la mission, false par defaut (pas de durée)  
+    // Here some configuration attributs
+      
+    // On peut changer une variables dont on a hérité (de Mission)
+    this.pointsAwarded   = 70; // Nombre de points obtenu à la fin de la mission, 100 par defaut
+    this.duration        = 20000; // Indique qu'on a 20 secondes pour réaliser la mission, false par defaut (pas de durée)  
 
-  // On peut aussi en ajouter une nouvelle (privée)
-  this.accound_to_find = "@jquest" // Notre mission peut par exemple consister à suivre ce compte
+    // On peut aussi en ajouter une nouvelle (privée)
+    this.accountToFind = "@jquest" // Notre mission peut par exemple consister à suivre ce compte
+
+    // Callback function
+    if(typeof callback === "function") callback.call(this);
+
+  });  
+
 }
 
 /**
