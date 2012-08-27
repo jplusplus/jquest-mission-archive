@@ -1,7 +1,7 @@
 {
-  "name": "jquest-mission",
+  "name": "jquest-mission-twitter",
   "version": "0.0.1",
-  "description": "Abstract class to implement jQuest's mission Node.js.",  
+  "description": "Test jQuest's mission.",  
   "engines": { "node": ">= 0.6.22" },
   "author": { 
     "name": "Pierre Romera", 
@@ -16,22 +16,11 @@
   "bugs": {
     "url": "https://github.com/jplusplus/jquest-mission/issues"
   },
-  "main": "./lib/mission",
-  "dependencies": {
-    "jade": "latest",
-    "async": "latest"
-  },
-  "devDependencies": {
-    "vows": "0.6.4"
-  },
-  "scripts": {
-    "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
-  },
   "licenses": [
     {
       "type": "MIT",
       "url": "http://www.opensource.org/licenses/MIT"
     }
   ],
-  "keywords": ["express", "jquest", "sdk", "mission", "e-learning"]
+  "keywords": ["express", "jquest", "sdk", "mission", "e-learning", "twitter"]
 }
