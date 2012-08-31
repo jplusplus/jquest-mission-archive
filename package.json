@@ -16,7 +16,10 @@
   "bugs": {
     "url": "https://github.com/jplusplus/jquest-mission/issues"
   },
-  "main": "./lib/mission",
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "index.js",
   "dependencies": {
     "jade": "latest",
     "async": "latest"
