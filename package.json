@@ -21,8 +21,9 @@
   },
   "main": "index.js",
   "dependencies": {
-    "jade": "latest",
-    "async": "latest"
+    "enc"   : "0.2.0",
+    "jade"  : "latest",
+    "async" : "latest"
   },
   "devDependencies": {
     "vows": "0.6.4"
