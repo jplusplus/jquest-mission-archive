@@ -1,5 +1,5 @@
 // Dependancies
-var TwitterMission = require("./twitter-mission")
+var TwitterMission = require("./fr-twitter-talk-1")
             , vows = require('vows')
           , assert = require('assert');
 
@@ -12,7 +12,7 @@ vows.describe('twitter-mission')
   .addBatch({
     "An instance of TwitterMission": {
       topic: function() {
-        return new TwitterMission({})
+        return new TwitterMission() // Without arguments : disabled the db sync
       },
       "Abstract methods implemented": function(topic) {
         tm = topic;
@@ -21,9 +21,9 @@ vows.describe('twitter-mission')
     }
   })
   .addBatch({  
-    "Required attributs states": {
-      "points awarded" : function() {
-        assert.isNumber( tm.pointsAwarded );
+    "Required attributs": {
+      "points required" : function() {
+        assert.isNumber( tm.pointsRequired );
       }, 
       "duration" : function () { 
         assert.isNumber( tm.duration )
@@ -32,9 +32,29 @@ vows.describe('twitter-mission')
       	assert.ok( tm.createdAt instanceof Date )
       }
     },
-    "Returned values" : {
-      "getUserPoints" : function () {
-        assert.isNumber( tm.getUserPoints() );
+    "Package settings" : {
+      "packageExists" : function() {
+        assert.isBoolean( tm.packageExists() );
+      },
+      "getPackagePath" : function() {
+        assert.isString( tm.getPackagePath() );
+      },
+      "loadPackage" : function() {
+        tm.loadPackage(function() {
+          assert.isObject( tm.config );
+        });
+      }
+    },
+    "Template settings" : {
+      "templateExists" : function() {
+        assert.isBoolean( tm.templateExists() );
+      },
+      "getTemplatePath" : function () {
+        assert.isString( tm.getTemplatePath() );
+      },
+      "getContent" : function () {
+        var locals = { question: { label:"WTF?", duration: 20 } };
+        assert.isString( tm.getContent(locals) );
       }
     }
   }).export(module);
