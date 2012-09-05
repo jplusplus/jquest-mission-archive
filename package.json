@@ -21,14 +21,14 @@
   },
   "main": "index.js",
   "dependencies": {
-    "enc"   : "0.2.0",
-    "jade"  : "latest",
-    "async" : "latest"
+    "enc"        : "0.2.0",
+    "jade"       : "latest",
+    "async"      : "latest",
+    "underscore" : "latest"
   },
   "devDependencies": {
     "vows": "0.6.4",
-    "twit"       : "latest",
-    "underscore" : "latest"
+    "twit": "latest"
   },
   "scripts": {
     "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
