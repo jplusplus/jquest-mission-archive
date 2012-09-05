@@ -26,7 +26,9 @@
     "async" : "latest"
   },
   "devDependencies": {
-    "vows": "0.6.4"
+    "vows": "0.6.4",
+    "twit"       : "latest",
+    "underscore" : "latest"
   },
   "scripts": {
     "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
