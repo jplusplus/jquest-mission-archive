@@ -1,0 +1,29 @@
+{
+  "name": "fr-twitter-talk-1",
+  "version": "0.0.1",
+  "description": "Test jQuest's mission.",
+  "engines": { "node": ">= 0.6.22" },
+  "author": { 
+    "name": "Pierre Romera", 
+    "email": "hello@pirhoo.com", 
+    "url": "http://pirhoo.com" 
+  },
+  "homepage": "http://jquest.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jplusplus/jquest-mission.git"
+  },  
+  "bugs": {
+    "url": "https://github.com/jplusplus/jquest-mission/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "keywords": ["express", "jquest", "sdk", "mission", "e-learning", "twitter"],
+  "jquest": {
+    "chapter": "parlez-vous-twitter"
+  }
+}

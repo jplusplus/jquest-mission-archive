@@ -1,0 +1,62 @@
+  
+
+case mission.state
+
+  when "game"        
+
+    //- Question countdown
+    if typeof question.duration != "undefined"
+      .well-header.question-countdown(data-duration=question.duration)
+        //- Display as time (mm:ss)
+        .pull-left.right20.time 00:00
+        //- Display as progress bar        
+        .progress
+          .bar 
+
+    .content
+      
+      //- Additional content above the question
+      if typeof question.content != "undefined"
+        !=question.content
+
+      //- The question text itself
+      h3.top20.question
+        .span8.tc     
+          =question.label
+
+      //- Current step in the quiz
+      .steps
+        =mission.getStep() + "/" + mission.questionsNumber
+
+      //- Encrypted solution
+      input(type="hidden", name="quiz-solution", value=question.solution)
+
+      //- Answers list
+      .row.answers
+        .span8.offset1
+          //- Is theres any answer list ?
+          if typeof question.answers != "undefined"
+            each answer in question.answers
+              label.span3.btn.btn-block.top20.radio
+                input(type="radio", name="quiz-answer", value=answer)
+                =answer
+            //- Adds an empty radio button for "no answer"
+            input.hide(type="radio", name="quiz-answer", value="", checked)
+    
+    //- Scripts dependencies
+    script(type="text/javascript")
+      window.twttr = (function (d,s,id) {
+      var t, js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+        js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+      }(document, "script", "twitter-wjs"));      
+
+  when "succeed"
+      h2 Congratulations!
+      p You win buddy!              
+
+  when "failed"
+      h2 Oh my gosh dude, you did something realy bad
+      p You should try again
+
