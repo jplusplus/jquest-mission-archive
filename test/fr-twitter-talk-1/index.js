@@ -1,6 +1,6 @@
 // Dependencies
 var util      = require("util")
-, MissionQuiz = require("jquest-mission").MissionQuiz
+, MissionQuiz = require("../../index.js").MissionQuiz
       , async = require("async")
        , Twit = require("twit")
           , _ = require("underscore");
@@ -216,10 +216,10 @@ function createTwitterClient() {
    * @type {Twit}
    */
   return this.twitterClient || ( this.twitterClient = new Twit({
-      consumer_key        : "NODE_CONFIG.oauth.twitter.consumer_key"
-    , consumer_secret     : "NODE_CONFIG.oauth.twitter.consumer_secret"
-    , access_token        : "NODE_CONFIG.oauth.twitter.access_token"
-    , access_token_secret : "NODE_CONFIG.oauth.twitter.access_token_secret"
+      consumer_key        : "your_consumer_key"
+    , consumer_secret     : "your_consumer_secret"
+    , access_token        : "your_access_token"
+    , access_token_secret : "your_access_token_secret"
   }) );
   
 }
