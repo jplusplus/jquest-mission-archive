@@ -12,7 +12,7 @@ var Mission = require('jquest-mission').Mission;
  * @param {object}      models       All database models' instances
  * @param {number}      userId       Id of the user that plays the mission 
  * @param {number}      chapterId    Id of the chapter related to the mission 
- * @param {function}    next         Callback function after synchronization
+ * @param {function}    callback     Callback function after synchronization
  */
 module.exports = function(models, userId, chapterId, callback) {  
   // Custom your Mission here..
