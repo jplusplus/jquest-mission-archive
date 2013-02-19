@@ -32,16 +32,24 @@ case mission.state
       input(type="hidden", name="quiz-solution", value=question.solution)
 
       //- Answers list
-      .row.answers
-        .span8.offset1
-          //- Is theres any answer list ?
-          if typeof question.answers != "undefined"
-            each answer in question.answers
-              label.span3.btn.btn-block.top20.radio
-                input(type="radio", name="quiz-answer", value=answer)
-                =answer
-            //- Adds an empty radio button for "no answer"
-            input.hide(type="radio", name="quiz-answer", value="", checked)
+      .answers        
+        //- Is theres any answer list ?
+        if typeof question.answers != "undefined"            
+          - for(q=0; q < question.answers.length;)
+            .row-fluid
+              .span3.hidden-phone
+              //- Builds each line with 2 answers
+              - for(d=0; d<2 && q < question.answers.length; d++)
+                
+                - answer = question.answers[q]                
+                - q++;
+                .span3
+                  label.btn.btn-block.top20
+                    input(type="radio", name="quiz-answer", value=answer)
+                    =answer
+
+        //- Adds an empty radio button for "no answer"
+        input.hide(type="radio", name="quiz-answer", value="", checked)
           
 
   when "succeed"
