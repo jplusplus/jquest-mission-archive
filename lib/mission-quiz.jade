@@ -13,43 +13,39 @@ case mission.state
         .progress
           .bar 
 
-    .content
-      
-      //- Additional content above the question
-      if typeof question.content != "undefined"
-        !=question.content
+    .content       
+      .steps=mission.getStep() + "/" + mission.questionsNumber
+      .row-fluid
+        .span8
+          //- Additional content above the question
+          if typeof question.content != "undefined"
+            !=question.content
 
-      //- The question text itself
-      h3.top20.question
-        .span8.tc     
-          =question.label
+        .span4
+          //- The question text itself
+          h3.top20.question.tc=question.label
 
-      //- Current step in the quiz
-      .steps
-        =mission.getStep() + "/" + mission.questionsNumber
+          //- Answers list
+          .answers          
+            //- Encrypted solution
+            input(type="hidden", name="quiz-solution", value=question.solution)  
+            //- Adds an empty radio button for "no answer"
+            input.hide(type="radio", name="quiz-answer", value="", checked)
+            //- Is theres any answer list ?
+            if typeof question.answers != "undefined"            
+              - for(q=0; q < question.answers.length;)
+                .row-fluid
+                  //- Builds each line with 2 answers
+                  - for(d=0; d<2 && q < question.answers.length; d++)                    
+                    - answer = question.answers[q]                
+                    - q++;
+                    .span6
+                      label.btn.btn-block.top20
+                        input(type="radio", name="quiz-answer", value=answer)
+                        =answer
 
-      //- Encrypted solution
-      input(type="hidden", name="quiz-solution", value=question.solution)
 
-      //- Answers list
-      .answers        
-        //- Is theres any answer list ?
-        if typeof question.answers != "undefined"            
-          - for(q=0; q < question.answers.length;)
-            .row-fluid
-              .span3.hidden-phone
-              //- Builds each line with 2 answers
-              - for(d=0; d<2 && q < question.answers.length; d++)
-                
-                - answer = question.answers[q]                
-                - q++;
-                .span3
-                  label.btn.btn-block.top20
-                    input(type="radio", name="quiz-answer", value=answer)
-                    =answer
 
-        //- Adds an empty radio button for "no answer"
-        input.hide(type="radio", name="quiz-answer", value="", checked)
           
 
   when "succeed"
