@@ -27,8 +27,8 @@ case mission.state
 
           //- Answers list
           .answers          
-            //- Encrypted solution
-            input(type="hidden", name="quiz-solution", value=question.solution)  
+            //- Question id to retreive its solution
+            input(type="hidden", name="id", value=question.id)  
             //- Adds an empty radio button for "no answer"
             input.hide(type="radio", name="quiz-answer", value="", checked)
             //- Is theres any answer list ?
@@ -45,12 +45,9 @@ case mission.state
                         =answer
 
 
-
-          
-
   when "succeed"
       h2 Congratulations!
-      p You win buddy!              
+      p You win buddy!        
 
   when "failed"
       h2 Oh my gosh dude, you did something realy bad
