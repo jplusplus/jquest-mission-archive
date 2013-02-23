@@ -21,7 +21,6 @@
   },
   "main": "index.js",
   "dependencies": {
-    "enc"        : "0.2.0",
     "jade"       : "latest",
     "async"      : "latest",
     "underscore" : "latest"
